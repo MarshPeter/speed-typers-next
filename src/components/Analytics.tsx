@@ -1,3 +1,4 @@
+import WordData from "@/models/WordData";
 import {
     CartesianGrid,
     Legend,
@@ -8,7 +9,6 @@ import {
     XAxis,
     YAxis,
 } from "recharts";
-import WordData from "../Models/WordData";
 
 interface Props {
     data: WordData[];
