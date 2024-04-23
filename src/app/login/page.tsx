@@ -10,6 +10,7 @@ export default function Login() {
     const router = useRouter();
 
     function setAccount(e: any) {
+        // so that when deployed in vercel, the deployment doesn't fail
         if (typeof window === "undefined") return;
 
         e.preventDefault();
@@ -23,7 +24,6 @@ export default function Login() {
 
     return (
         <>
-            <Header></Header>
             <main className="w-full flex justify-center">
                 <div className="w-5/12">
                     <form

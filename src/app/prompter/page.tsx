@@ -24,7 +24,6 @@ function Prompter() {
 
     return (
         <>
-            <Header />
             <main className="w-full flex justify-center">
                 <div className="w-2/3">
                     {showPrompt ? (

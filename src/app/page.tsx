@@ -4,7 +4,6 @@ import InPageLink from "@/components/InPageLink";
 export default function Home() {
     return (
         <div className="bg-gray-200 min-h-screen min-w-screen">
-            <Header></Header>
             <main className="flex justify-center">
                 <div className="flex flex-col justify-center text-center gap-14 w-2/3 h-full p-16 bg-gray-700">
                     <div>

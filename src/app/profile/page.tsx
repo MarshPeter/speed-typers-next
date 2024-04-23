@@ -43,7 +43,6 @@ export default function Profile() {
 
     return (
         <div>
-            <Header></Header>
             <main className="flex justify-center gap-8">
                 <div className="flex flex-wrap flex-col gap-8 justify-center bg-indigo-100/40 content-center min-h-96 rounded-2xl border-8 border-black p-8 text-2xl">
                     <Button
