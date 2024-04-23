@@ -2,8 +2,8 @@
 import { useRouter } from "next/navigation";
 
 export default function Logout() {
-    if (typeof window === "undefined") return;
     const router = useRouter();
+    if (typeof window === "undefined") return;
     const userName = localStorage.getItem("username");
 
     if (userName) {
