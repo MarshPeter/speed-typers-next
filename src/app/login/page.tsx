@@ -10,6 +10,8 @@ export default function Login() {
     const router = useRouter();
 
     function setAccount(e: any) {
+        if (typeof window === "undefined") return;
+
         e.preventDefault();
         const usernameValue = localStorage.getItem("username");
 
