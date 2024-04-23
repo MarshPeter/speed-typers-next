@@ -14,13 +14,13 @@ enum PageType {
 }
 
 export default function Profile() {
-    const userLoggedIn = localStorage.getItem("username");
     const [data, setData] = useState([{}]);
     const [dataRetrieved, setDataRetrieved] = useState(false);
     const [showComponent, setShowComponent] = useState(PageType.ANALYTICS);
     const router = useRouter();
 
     useEffect(() => {
+        const userLoggedIn = localStorage.getItem("username");
         if (!userLoggedIn) {
             router.push("/");
         }
