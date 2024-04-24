@@ -6,14 +6,14 @@ export default function Header() {
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        const loggedIn = localStorage.getItem("username");
+        const loggedInLocally = localStorage.getItem("username");
 
-        if (loggedIn) {
+        if (loggedInLocally) {
             setLoggedIn(true);
         } else {
             setLoggedIn(false);
         }
-    }, [loggedIn]);
+    }, []);
 
     return (
         <header className="flex justify-center bg-black p-3 mb-8 text-4xl text-white border-b-2 border-white">
