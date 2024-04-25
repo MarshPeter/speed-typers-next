@@ -1,5 +1,4 @@
 "use client";
-import Header from "@/components/Header";
 import PromptResults from "@/components/PromptResults";
 import TypingPrompt from "@/components/TypingPrompt";
 import TextPromptFetcher from "@/services/TextPromptFetcher";
@@ -23,31 +22,27 @@ function Prompter() {
     }
 
     return (
-        <>
-            <main className="w-full flex justify-center">
-                <div className="w-2/3">
-                    {showPrompt ? (
-                        <TypingPrompt
-                            phrase={phrase}
-                            correctCharacterCount={correctCharacterCount}
-                            currentAverage={currentAverage}
-                            wordsPerMinute={wordsPerMinute}
-                            showPrompt={showPrompt}
-                            setCorrectCharacterCount={setCorrectCharacterCount}
-                            setCurrentAverage={setCurrentAverage}
-                            setShowPrompt={setShowPrompt}
-                            setWordsPerMinute={setWordsPerMinute}
-                        />
-                    ) : (
-                        <PromptResults
-                            correctCharacterCount={correctCharacterCount}
-                            wordsPerMinute={wordsPerMinute}
-                            phrase={phrase}
-                        />
-                    )}
-                </div>
-            </main>
-        </>
+        <main className="w-full flex justify-center pt-8">
+            {showPrompt ? (
+                <TypingPrompt
+                    phrase={phrase}
+                    correctCharacterCount={correctCharacterCount}
+                    currentAverage={currentAverage}
+                    wordsPerMinute={wordsPerMinute}
+                    showPrompt={showPrompt}
+                    setCorrectCharacterCount={setCorrectCharacterCount}
+                    setCurrentAverage={setCurrentAverage}
+                    setShowPrompt={setShowPrompt}
+                    setWordsPerMinute={setWordsPerMinute}
+                />
+            ) : (
+                <PromptResults
+                    correctCharacterCount={correctCharacterCount}
+                    wordsPerMinute={wordsPerMinute}
+                    phrase={phrase}
+                />
+            )}
+        </main>
     );
 }
 

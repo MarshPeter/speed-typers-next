@@ -108,7 +108,7 @@ export default function TypingPrompt({
     }
 
     return (
-        <div className="flex flex-col align-center gap-4 p-5 rounded border-8 border-indigo-400">
+        <div className="flex flex-col w-5/12 align-center gap-4 p-5 rounded border-8 border-indigo-400">
             {countdownOngoing ? (
                 <Countdown onConclusionFunction={finishCountdown}></Countdown>
             ) : null}
