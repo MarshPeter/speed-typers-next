@@ -108,12 +108,12 @@ export default function TypingPrompt({
     }
 
     return (
-        <div className="flex flex-col w-5/12 align-center gap-4 p-5 rounded border-8 border-indigo-400">
+        <div className="flex flex-col w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 align-center gap-4 p-5 bg-white text-neutral-800 shadow-2xl border-2 rounded  border-gray-800">
             {countdownOngoing ? (
                 <Countdown onConclusionFunction={finishCountdown}></Countdown>
             ) : null}
-            <div>
-                <p className="text-3xl">
+            <div className="border-gray-300 border-b-2 pb-6">
+                <p className="text-4xl">
                     {phrase.split("").map((char, index) => {
                         if (index > highlightIndex) return char;
 
@@ -147,14 +147,14 @@ export default function TypingPrompt({
                         return char;
                     })}
                 </p>
-                <div className="flex justify-between text-lg">
-                    <p>
-                        Correct: {correctCharacterCount} /{" "}
-                        {correctCharacterArray.length}
-                    </p>
-                    <p>WPM: {wordsPerMinute.toFixed(2)}</p>
-                    <p>Average: {currentAverage.toFixed(0)}%</p>
-                </div>
+            </div>
+            <div className="flex justify-center text-5xl font-bold">
+                <p>
+                    <span className="font-bold">
+                        {wordsPerMinute.toFixed(2)}
+                    </span>{" "}
+                    <span className="text-lg">WPM</span>
+                </p>
             </div>
         </div>
     );
