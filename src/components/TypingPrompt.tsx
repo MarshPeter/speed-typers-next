@@ -113,7 +113,7 @@ export default function TypingPrompt({
                 <Countdown onConclusionFunction={finishCountdown}></Countdown>
             ) : null}
             <div className="border-gray-300 border-b-2 pb-6">
-                <p className="text-4xl">
+                <p className="text-4xl text-justify">
                     {phrase.split("").map((char, index) => {
                         if (index > highlightIndex) return char;
 
@@ -121,7 +121,7 @@ export default function TypingPrompt({
                             return (
                                 <span
                                     key={index}
-                                    className="bg-red-400 bg-opacity-40"
+                                    className="bg-red-400 bg-opacity-40 border-l-2 border-black border-border"
                                 >
                                     {char}
                                 </span>
