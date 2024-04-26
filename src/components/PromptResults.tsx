@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PromptStatsCalculator from "../services/PromptStatsCalculator";
-import Button from "./Button";
 import {
     faA,
     faCheck,
@@ -12,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as classic from "@fortawesome/free-regular-svg-icons";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Props {
     correctCharacterCount: number;
@@ -36,6 +36,7 @@ export default function PromptResults({
         (correctCharacterCount / characterCount) *
         100
     ).toFixed(2);
+    const router = useRouter();
 
     function playAgain() {
         window.location.reload();
@@ -118,24 +119,24 @@ export default function PromptResults({
             </div>
             <div className="w-full pt-4">
                 <div className="flex items-center justify-center">
-                    <Link
+                    <button
                         className="flex justify-center items-center gap-4 text-3xl w-full p-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-neutral-800 rounded-md border-2 hover:border-gray-700"
-                        href="/prompter"
+                        onClick={playAgain}
                     >
                         <p>Play Again</p>
                         <FontAwesomeIcon icon={faRotateRight} flip="both" />
-                    </Link>
+                    </button>
                 </div>
             </div>
             <div className="w-full pt-4">
                 <div className="flex items-center justify-center">
-                    <Link
+                    <button
                         className="flex justify-center items-center gap-4 text-3xl w-full p-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-neutral-800 rounded-md border-2 hover:border-gray-700"
-                        href="/leaderboard"
+                        onClick={playAgain}
                     >
                         <p>Leaderboard</p>
                         <FontAwesomeIcon icon={faRankingStar} />
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
