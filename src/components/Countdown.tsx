@@ -22,8 +22,8 @@ export default function Countdown({
     }, [currentNumber]);
 
     return (
-        <div className="flex flex-wrap justify-center content-center w-36 h-36 border-black text-8xl border-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <p>{currentNumber}</p>
+        <div className="flex flex-wrap justify-center content-center w-36 h-36 bg-white border-black shadow-2xl text-8xl border-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p className="">{currentNumber}</p>
         </div>
     );
 }
