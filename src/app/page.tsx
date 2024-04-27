@@ -9,12 +9,13 @@ import Link from "next/link";
 
 export default async function Home() {
     const { userId } = auth();
-    console.log(userId);
+    // console.log(userId);
 
     if (userId) {
         const user = await currentUser();
-        console.log(user);
+        // console.log(user);
     }
+
     return (
         <main className="flex justify-center items-center min-w-screen mt-16">
             <div className="flex flex-col justify-center text-center gap-6 p-6 lg:p-12 w-1/3 text-neutral-800 bg-white border-4 rounded-lg shadow-2xl border-gray-400">
