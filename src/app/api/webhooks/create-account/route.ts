@@ -53,23 +53,22 @@ export async function POST(req: Request) {
     console.log('testing1')
 
     if (eventType === 'user.created') {
-    console.log('testing2');
-        return new Response('You made it into here');
-    // const { id, username } = evt.data;
+        console.log('testing2');
+        const { id, username } = evt.data;
 
-    // if (typeof username !== 'string') {
-    //     console.log("ACCOUNT NOT CREATED BECAUSE USERNAME WAS NOT CREATED");
-    //     return new Response('ACCOUNT NOT CREATED BECAUSE USERNAME WAS NOT CREATED', {status: 400});
-    // }
+        if (typeof username !== 'string') {
+            console.log("ACCOUNT NOT CREATED BECAUSE USERNAME WAS NOT CREATED");
+            return new Response('ACCOUNT NOT CREATED BECAUSE USERNAME WAS NOT CREATED', {status: 400});
+        }
 
-    // const brandNewUser = {
-    //     username,
-    //     clerkId: id
-    // }
+        const brandNewUser = {
+            username,
+            clerkId: id
+        }
 
-    // return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
-    // createUser(brandNewUser);
-    // return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
+        return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
+        // createUser(brandNewUser);
+        // return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
     }
     console.log("testing3");
 
