@@ -66,9 +66,8 @@ export async function POST(req: Request) {
             clerkId: id
         }
 
-        return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
-        // createUser(brandNewUser);
-        // return new Response(`ACCOUNT ${id} CREATED - USERNAME ${username}`, {status: 200});
+        const newUserCreated = await createUser(brandNewUser);
+        return new Response(`ACCOUNT ${id} CREATED - USERNAME ${newUserCreated}`, {status: 200});
     }
     console.log("testing3");
 

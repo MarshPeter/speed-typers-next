@@ -6,6 +6,7 @@ import { account } from "./schema";
 export const db = drizzle(sql);
 
 export async function createUser(data: newUser) {
-    await db.insert(account).values(data);
+    const newUser = await db.insert(account).values(data).returning({ username: account.username });
+    return newUser;
 }
  
