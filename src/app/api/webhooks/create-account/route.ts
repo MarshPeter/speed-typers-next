@@ -50,10 +50,8 @@ export async function POST(req: Request) {
     // Get the ID and type
     const { id } = evt.data;
     const eventType = evt.type;
-    console.log('testing1')
 
     if (eventType === 'user.created') {
-        console.log('testing2');
         const { id, username } = evt.data;
 
         if (typeof username !== 'string') {
@@ -62,14 +60,13 @@ export async function POST(req: Request) {
         }
 
         const brandNewUser = {
-            username,
-            clerkId: id
+            clerkId: id,
+            username
         }
 
         const newUserCreated = await createUser(brandNewUser);
-        return new Response(`ACCOUNT ${id} CREATED - USERNAME ${newUserCreated}`, {status: 200});
+        return new Response(`ACCOUNT ${id} CREATED`, {status: 200});
     }
-    console.log("testing3");
 
     console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
     console.log('Webhook body:', body)

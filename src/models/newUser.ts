@@ -1,4 +1,4 @@
 export interface newUser {
+    clerkId: string,
     username: string,
-    clerkId: string   
 }
