@@ -1,3 +1,4 @@
+import UploadWPM from "@/services/uploadWPM";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import {
     faKeyboard,
@@ -9,9 +10,10 @@ import Link from "next/link";
 
 export default async function Home() {
     const { userId } = auth();
-    // console.log(userId);
+    console.log(userId);
 
     if (userId) {
+        // UploadWPM(userId, "50.5");
         const user = await currentUser();
         // console.log(user);
     }

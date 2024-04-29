@@ -10,8 +10,8 @@ import {
     faRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
 import * as classic from "@fortawesome/free-regular-svg-icons";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useAuth } from "@clerk/nextjs";
 
 interface Props {
     correctCharacterCount: number;
@@ -24,6 +24,7 @@ export default function PromptResults({
     wordsPerMinute,
     phrase,
 }: Props) {
+    const [uploadedResult, setUploadedResult] = useState(false);
     const characterCount = phrase.length;
     const wordCount = phrase.split(" ").length;
     const adjustedWordsPerMinute =
@@ -36,11 +37,37 @@ export default function PromptResults({
         (correctCharacterCount / characterCount) *
         100
     ).toFixed(2);
-    const router = useRouter();
+
+    const { userId} = useAuth();
 
     function playAgain() {
         window.location.reload();
     }
+
+    if (userId) {
+        console.log(userId);
+    }
+
+    useEffect(() => {
+        if (!uploadedResult) {
+            const options = {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({})
+            }
+            fetch("http://localhost:3000/api/uploadWPM", {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({
+                    userId: userId,
+                    WPM: adjustedWordsPerMinute
+                }),
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+            setUploadedResult(true);
+        }
+    }, [])
 
     return (
         <div className="flex flex-wrap justify-between w-2/3 lg:w-1/3 text-3xl p-8 text-neutral-800 bg-white rounded border-2 border-black shadow-2xl">

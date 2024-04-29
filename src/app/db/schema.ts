@@ -16,7 +16,7 @@ export const account = pgTable(`${prefix}_account`, {
 
 export const dailyWordsPerMinute = pgTable(`${prefix}_dailyWordsPerMinute`, {
     id: serial("id").primaryKey(),
-    bestWPMForDay: numeric("bestWPMForDay", { precision: 2 }).notNull(),
+    bestWPMForDay: numeric("bestWPMForDay", { precision: 4, scale: 2 }).notNull(),
     dateOfResult: date("dateOfResult", { mode: "date" }).notNull(),
     clerkId: text("clerkId").references(() => account.clerkId).notNull(),
 });
