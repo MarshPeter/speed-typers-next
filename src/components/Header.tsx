@@ -24,6 +24,9 @@ export default function Header() {
                         >
                             Race
                         </Link>
+                        <Link className="border-b-2 border-black hover:border-gray-600" href="/leaderboard">
+                            Leaderboard
+                        </Link>
                         <SignedOut>
                             <Link
                                 className="border-b-2 border-black hover:border-gray-600"

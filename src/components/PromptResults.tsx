@@ -12,6 +12,7 @@ import {
 import * as classic from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 interface Props {
     correctCharacterCount: number;
@@ -48,26 +49,27 @@ export default function PromptResults({
         console.log(userId);
     }
 
-    useEffect(() => {
-        if (!uploadedResult) {
-            const options = {
-                method: "POST",
-                mode: "cors",
-                body: JSON.stringify({})
-            }
-            fetch("http://localhost:3000/api/uploadWPM", {
-                method: "POST",
-                mode: "cors",
-                body: JSON.stringify({
-                    userId: userId,
-                    WPM: adjustedWordsPerMinute
-                }),
-            })
-            .then(res => res.json())
-            .then(res => console.log(res));
-            setUploadedResult(true);
-        }
-    }, [])
+    // uncomment this when completed everything
+    // useEffect(() => {
+    //     if (!uploadedResult) {
+    //         const options = {
+    //             method: "POST",
+    //             mode: "cors",
+    //             body: JSON.stringify({})
+    //         }
+    //         fetch("http://localhost:3000/api/uploadWPM", {
+    //             method: "POST",
+    //             mode: "cors",
+    //             body: JSON.stringify({
+    //                 userId: userId,
+    //                 WPM: adjustedWordsPerMinute
+    //             }),
+    //         })
+    //         .then(res => res.json())
+    //         .then(res => console.log(res));
+    //         setUploadedResult(true);
+    //     }
+    // }, [])
 
     return (
         <div className="flex flex-wrap justify-between w-2/3 lg:w-1/3 text-3xl p-8 text-neutral-800 bg-white rounded border-2 border-black shadow-2xl">
@@ -157,13 +159,13 @@ export default function PromptResults({
             </div>
             <div className="w-full pt-4">
                 <div className="flex items-center justify-center">
-                    <button
+                    <Link
                         className="flex justify-center items-center gap-4 text-3xl w-full p-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-neutral-800 rounded-md border-2 hover:border-gray-700"
-                        onClick={playAgain}
+                        href="/leaderboard"
                     >
                         <p>Leaderboard</p>
                         <FontAwesomeIcon icon={faRankingStar} />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

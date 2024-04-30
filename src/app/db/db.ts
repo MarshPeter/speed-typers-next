@@ -1,8 +1,10 @@
 import { newUser } from "@/models/newUser";
 import { sql } from "@vercel/postgres";
 import { drizzle } from "drizzle-orm/vercel-postgres";
-import { account, dailyWordsPerMinute } from "./schema";
+import { account, wordsPerMinute } from "./schema";
 import { BestWPMDay } from "@/models/bestWPMDay";
+import { desc, eq, exists, isNotNull } from "drizzle-orm";
+import { LeaderboardResult } from "@/models/leaderboardResult";
 
 export const db = drizzle(sql);
 
@@ -12,10 +14,24 @@ export async function createUser(data: newUser) {
 }
 
 export async function saveWPM(WPM: string, accountId: string) {
-    await db.insert(dailyWordsPerMinute).values({
-        bestWPMForDay: WPM,
+    await db.insert(wordsPerMinute).values({
+        WPM: WPM,
         dateOfResult: new Date(),
-        clerkId: accountId
+        accountId: accountId
     });
+}
+
+export async function getLeaderBoard(): Promise<Array<LeaderboardResult>> {
+    const result = await db.select({
+        username: account.username,
+        WPM: wordsPerMinute.WPM,
+    })
+    .from(account)
+    .leftJoin(wordsPerMinute, eq(account.clerkId, wordsPerMinute.accountId))
+    .where(isNotNull(wordsPerMinute.WPM))
+    .orderBy(desc(wordsPerMinute.WPM))
+    .limit(10);
+
+    return result;
 }
  
