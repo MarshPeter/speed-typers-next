@@ -26,7 +26,7 @@ export default async function page() {
   //   {username: "dynamoMarsh", WPM: "85"},
   // ];
 
-  const response =  await fetch("http://localhost:3000/api/get-leaderboard");
+  const response =  await fetch("https://speed-typers-next.vercel.app/api/get-leaderboard");
   const topPlayers = await response.json() as Array<LeaderboardResult>;
   console.log(topPlayers);
 
