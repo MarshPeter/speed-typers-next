@@ -18,7 +18,9 @@ function Prompter() {
     }, []);
 
     if (phrase === "") {
-        return <div>Loading Prompt</div>;
+        return <main className="flex flex-col w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 align-center gap-4 p-5 bg-white text-neutral-800 shadow-2xl border-2 rounded  border-gray-800">
+            <p className="text-2xl">LOADING</p>
+        </main>
     }
 
     return (
