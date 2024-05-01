@@ -45,10 +45,6 @@ export default function PromptResults({
         window.location.reload();
     }
 
-    if (userId) {
-        console.log(userId);
-    }
-
     useEffect(() => {
         if (userId && !uploadedResult) {
             const options = {

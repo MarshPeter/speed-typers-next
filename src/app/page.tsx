@@ -1,4 +1,3 @@
-import UploadWPM from "@/services/uploadWPM";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import {
