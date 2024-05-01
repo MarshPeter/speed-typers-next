@@ -5,30 +5,9 @@ import Link from "next/link";
 import { getLeaderBoard } from "../db/db";
 import { LeaderboardResult } from "@/models/leaderboardResult";
 
-export default async function page() {
-
-  // const topPlayers = [
-  //   {username: "dynamoMarsh", WPM: "89.2"},
-  //   {username: "dynamoMarsh", WPM: "89.1"},
-  //   {username: "dynamoMarsh", WPM: "89.0"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  //   {username: "dynamoMarsh", WPM: "85"},
-  // ];
-
+export default async function Page() {
   const response =  await fetch("https://speed-typers-next.vercel.app/api/get-leaderboard");
   const topPlayers = await response.json() as Array<LeaderboardResult>;
-  console.log(topPlayers);
 
   return (
     <main className="flex justify-center items-center min-w-screen mt-16 pb-8">

@@ -5,6 +5,7 @@ import { account, wordsPerMinute } from "./schema";
 import { BestWPMDay } from "@/models/bestWPMDay";
 import { desc, eq, exists, isNotNull } from "drizzle-orm";
 import { LeaderboardResult } from "@/models/leaderboardResult";
+import { Result } from "@/models/result";
 
 export const db = drizzle(sql);
 
@@ -34,4 +35,16 @@ export async function getLeaderBoard(): Promise<Array<LeaderboardResult>> {
 
     return result;
 }
+
+export async function getPersonalLeaderBoard(id: string): Promise<Array<Result>> {
+    const result = await db.select({
+        WPM: wordsPerMinute.WPM,
+    })
+    .from(wordsPerMinute)
+    .orderBy(desc(wordsPerMinute.WPM))
+    .limit(5);
+
+    return result;
+}
+
  
