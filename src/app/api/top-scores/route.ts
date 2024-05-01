@@ -1,7 +1,7 @@
-// SELECT * FROM "speed-typer_account" LEFT JOIN "speed-typer_wordsPerMinute" on "speed-typer_account"."clerkId" = "speed-typer_wordsPerMinute"."accountId" WHERE "speed-typer_wordsPerMinute"."WPM" IS NOT NULL ORDER BY "speed-typer_wordsPerMinute"."WPM" DESC LIMIT 10;
-
 import { getLeaderBoard } from "@/app/db/db";
 import { NextResponse } from "next/server";
+export const dynamic = "force-dynamic"; // static by default, unless reading the request
+export const runtime = "nodejs"; // specify the runtime to be node
 
 export async function GET() {
     const data = await getLeaderBoard();

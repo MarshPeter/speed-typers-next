@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 
 export default async function Page() {
     const { userId } = auth();
+    console.log(userId);
 
     if (!userId) {
         redirect('/')
@@ -15,6 +16,7 @@ export default async function Page() {
 
     const response =  await fetch(`https://speed-typers-next.vercel.app/api/get-account-best?id=${userId}`, {cache: 'no-store'});
     const bestResults = await response.json() as Array<Result>;
+    console.log(bestResults);
 
     return (
     <main className="flex justify-center items-center min-w-screen mt-8 pb-8">
