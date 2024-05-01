@@ -25,7 +25,7 @@ export default async function Page() {
             <div className="flex flex-col gap-5 justify-center content-center">
                 {bestResults && bestResults.length > 0 ?
                     <ResultList results={bestResults}></ResultList>
-                : <p>You haven't done any races yet! Get some races in and see your progress!</p> }
+                : <p>You haven&apost done any races yet! Get some races in and see your progress!</p> }
             </div>
             <div className="flex flex-col items-center justify-center">
                 <Link
