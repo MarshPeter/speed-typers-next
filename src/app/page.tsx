@@ -42,15 +42,6 @@ export default async function Home() {
                     </div>
                     <div className="flex items-center justify-center">
                         <Link
-                            className="flex justify-center items-center gap-4 text-3xl w-10/12 p-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-neutral-800 rounded-md border-2 hover:border-gray-700"
-                            href="/sign-up"
-                        >
-                            <p>Sign Up</p>
-                            <FontAwesomeIcon icon={faUserPlus} className="w-7" />
-                        </Link>
-                    </div>
-                    <div className="flex items-center justify-center">
-                        <Link
                             className="flex justify-center items-center gap-2 text-3xl w-10/12 p-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-neutral-800 rounded-md border-2 hover:border-gray-700"
                             href="/prompter"
                         >

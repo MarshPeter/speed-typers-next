@@ -34,12 +34,6 @@ export default function Header() {
                             >
                                 Sign In
                             </Link>
-                            <Link
-                                className="border-b-2 border-black hover:border-gray-600"
-                                href="/sign-up"
-                            >
-                                Sign Up
-                            </Link>
                         </SignedOut>
                         <SignedIn>
                             <Link
