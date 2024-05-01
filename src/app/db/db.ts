@@ -2,7 +2,6 @@ import { newUser } from "@/models/newUser";
 import { sql } from "@vercel/postgres";
 import { drizzle } from "drizzle-orm/vercel-postgres";
 import { account, wordsPerMinute } from "./schema";
-import { BestWPMDay } from "@/models/bestWPMDay";
 import { desc, eq, exists, isNotNull } from "drizzle-orm";
 import { LeaderboardResult } from "@/models/leaderboardResult";
 import { Result } from "@/models/result";
@@ -29,8 +28,11 @@ export async function getLeaderBoard(): Promise<Array<LeaderboardResult>> {
     })
     .from(account)
     .leftJoin(wordsPerMinute, eq(account.clerkId, wordsPerMinute.accountId))
+    .where(isNotNull(wordsPerMinute.WPM))
     .orderBy(desc(wordsPerMinute.WPM))
     .limit(10);
+
+    console.log(result);
 
     return result;
 }

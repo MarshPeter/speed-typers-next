@@ -5,8 +5,9 @@ import Link from "next/link";
 import { LeaderboardResult } from "@/models/leaderboardResult";
 
 export default async function Page() {
-  const response =  await fetch("https://speed-typers-next.vercel.app/api/get-leaderboard");
+  const response =  await fetch("https://speed-typers-next.vercel.app/api/top-scores");
   const topPlayers = await response.json() as Array<LeaderboardResult>;
+  console.log(topPlayers);
 
   return (
     <main className="flex justify-center items-center min-w-screen mt-16 pb-8">
@@ -42,7 +43,7 @@ export default async function Page() {
           return (
             <div className="flex flex-col" key="index">
               <div className="flex justify-between text-2xl font-bold p-4 bg-gray-100 border-gray-200 shadow-lg">
-                <h3>{index}th</h3>
+                <h3>{index + 1}th</h3>
                 <p>{row.username}</p>
                 <p>{row.WPM}<span className="text-sm"> WPM</span></p>
               </div>
