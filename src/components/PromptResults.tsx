@@ -49,27 +49,26 @@ export default function PromptResults({
         console.log(userId);
     }
 
-    // uncomment this when completed everything
-    // useEffect(() => {
-    //     if (!uploadedResult) {
-    //         const options = {
-    //             method: "POST",
-    //             mode: "cors",
-    //             body: JSON.stringify({})
-    //         }
-    //         fetch("http://localhost:3000/api/uploadWPM", {
-    //             method: "POST",
-    //             mode: "cors",
-    //             body: JSON.stringify({
-    //                 userId: userId,
-    //                 WPM: adjustedWordsPerMinute
-    //             }),
-    //         })
-    //         .then(res => res.json())
-    //         .then(res => console.log(res));
-    //         setUploadedResult(true);
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (userId && !uploadedResult) {
+            const options = {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({})
+            }
+            fetch("http://localhost:3000/api/uploadWPM", {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({
+                    userId: userId,
+                    WPM: adjustedWordsPerMinute
+                }),
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+            setUploadedResult(true);
+        }
+    }, [])
 
     return (
         <div className="flex flex-wrap justify-between w-2/3 lg:w-1/3 text-3xl p-8 text-neutral-800 bg-white rounded border-2 border-black shadow-2xl">
