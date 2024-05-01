@@ -29,7 +29,6 @@ export async function getLeaderBoard(): Promise<Array<LeaderboardResult>> {
     })
     .from(account)
     .leftJoin(wordsPerMinute, eq(account.clerkId, wordsPerMinute.accountId))
-    .where(isNotNull(wordsPerMinute.WPM))
     .orderBy(desc(wordsPerMinute.WPM))
     .limit(10);
 
