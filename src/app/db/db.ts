@@ -42,7 +42,7 @@ export async function getPersonalLeaderBoard(id: string): Promise<Array<Result>>
         WPM: wordsPerMinute.WPM,
     })
     .from(wordsPerMinute)
-    .where(eq(account.clerkId, id))
+    .where(eq(wordsPerMinute.accountId, id))
     .orderBy(desc(wordsPerMinute.WPM))
     .limit(5);
 
