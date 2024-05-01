@@ -2,7 +2,6 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { faKeyboard, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { getLeaderBoard } from "../db/db";
 import { LeaderboardResult } from "@/models/leaderboardResult";
 
 export default async function Page() {
