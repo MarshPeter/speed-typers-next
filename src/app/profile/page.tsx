@@ -13,7 +13,7 @@ export default async function Page() {
         redirect('/')
     }
 
-    const response =  await fetch(`https://speed-typers-next.vercel.app/api/get-account-best?id=${userId}`);
+    const response =  await fetch(`https://speed-typers-next.vercel.app/api/get-account-best?id=${userId}`, {cache: 'no-store'});
     const bestResults = await response.json() as Array<Result>;
 
     return (

@@ -56,7 +56,7 @@ export default function PromptResults({
                 mode: "cors",
                 body: JSON.stringify({})
             }
-            fetch("http://localhost:3000/api/uploadWPM", {
+            fetch("https://speed-typers-next.vercel.app/api/uploadWPM", {
                 method: "POST",
                 mode: "cors",
                 body: JSON.stringify({

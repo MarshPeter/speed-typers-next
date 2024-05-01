@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LeaderboardResult } from "@/models/leaderboardResult";
 
 export default async function Page() {
-  const response =  await fetch("https://speed-typers-next.vercel.app/api/top-scores");
+  const response =  await fetch("https://speed-typers-next.vercel.app/api/top-scores", {cache: 'no-store'});
   const topPlayers = await response.json() as Array<LeaderboardResult>;
   console.log(topPlayers);
 
