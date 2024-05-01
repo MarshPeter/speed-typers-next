@@ -38,17 +38,17 @@ export default function TypingPrompt({
         if (startTime === 0) {
             setStartTime(performance.now());
         }
-        console.log(phrase.length, correctCharacterArray.length);
-        // this is very much a hack - won't need this if indexes work properly
+
         if (highlightIndex >= phrase.length) {
             setHighlightIndex(highlightIndex + 1);
             return;
         }
+
         const key = e.key;
-        console.log(key);
         if (key.toLowerCase() === "shift" || key.toLowerCase() === "capslock") {
             return;
         }
+
         let correct = correctCharacterCount;
         if (phrase[highlightIndex] === key) {
             setCorrectCharacterCount(correctCharacterCount + 1);
@@ -67,7 +67,7 @@ export default function TypingPrompt({
             }
         );
 
-        if (phrase[highlightIndex] === " ") {
+        if (phrase[highlightIndex] === " " || highlightIndex === (phrase.length - 1)) {
             setWordsComplete(wordsComplete + 1);
         }
 

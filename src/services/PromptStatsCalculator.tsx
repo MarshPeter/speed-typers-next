@@ -1,3 +1,4 @@
+
 class PromptStatsCalculator {
     calculateWordsPerMinute(startTime: number, wordsComplete: number): number {
         const currentTime = performance.now();
