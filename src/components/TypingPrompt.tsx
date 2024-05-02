@@ -113,7 +113,7 @@ export default function TypingPrompt({
                 <Countdown onConclusionFunction={finishCountdown}></Countdown>
             ) : null}
             <div className="border-gray-300 border-b-2 pb-6">
-                <p className="text-4xl text-justify">
+                <p className="text-4xl">
                     {phrase.split("").map((char, index) => {
                         if (index > highlightIndex) return char;
 
